@@ -7,3 +7,4 @@ RUN apt-get update &&\
 	
 RUN git config --global user.email "build@no-domain"
 RUN git config --global user.name "Buildrobot"
+RUN git config --global color.ui false
