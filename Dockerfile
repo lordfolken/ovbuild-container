@@ -1,4 +1,4 @@
-FROM crops/poky
+FROM crops/poky:ubuntu-18.04
 
 USER root
 
