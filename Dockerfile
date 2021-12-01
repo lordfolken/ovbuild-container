@@ -1,11 +1,11 @@
-FROM crops/poky:ubuntu-20.04
+FROM crops/poky:debian-11
 
 USER root
 
-RUN apt-get update &&\
-	apt-get install -y --no-install-recommends python3-dev imagemagick ffmpeg git curl rsync && apt-get clean
+COPY files/sources.list /etc/apt/sources.list
 
-RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo && chmod 755 /usr/local/bin/repo
+RUN apt-get update &&\
+	apt-get install -y --no-install-recommends python3-dev imagemagick ffmpeg git curl rsync repo && apt-get clean
 
 # Add gcc for XCSoar
 RUN apt-get install --no-install-recommends -y gcc g++ && apt-get clean
